@@ -1,0 +1,36 @@
+[project]
+name = "s3-proxy"
+version = "0.0.1"
+description = "S3 proxy that supports HEAD and GET requests"
+requires-python = ">=3.12"
+dependencies = [
+    "aiobotocore>=2.21,<3",
+    "aiohttp>=3.11,<4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8,<9",
+    "pytest-aiohttp>=1.1,<2",
+    "pytest-asyncio>=0.25,<1",
+    "pytest-cov>=6,<7",
+]
+
+[tool.setuptools]
+py-modules = ["app"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=app --cov-report=term-missing --cov-fail-under=100"
+asyncio_mode = "auto"
+filterwarnings = [
+    "ignore::DeprecationWarning:pytest_asyncio",
+]
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__",
+]
