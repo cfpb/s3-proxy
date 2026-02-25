@@ -57,3 +57,5 @@ At any time to run the hooks on all files in the project you can run:
 ```sh
 pre-commit run --all-files
 ```
+
+These hooks also run against all PRs to this repo.
