@@ -16,6 +16,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: cfpb/actions/docker-build-push@main
+      - uses: cfpb/actions/docker-build-push@d792d3820b690ce5d21691d2402f9bd3f8154783
         with:
           image-name: s3-proxy
