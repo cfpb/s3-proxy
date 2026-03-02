@@ -1,0 +1,21 @@
+name: docker
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cfpb/actions/docker-build-push@main
+        with:
+          image-name: s3-proxy
