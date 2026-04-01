@@ -16,6 +16,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: cfpb/actions/docker-build-push@f584bc1041a1c0590d35533f4f3478ad1229f210
+      - uses: cfpb/actions/docker-build-push@1be1a44a38e05b7092c844511a0d214e93b43c21
         with:
           image-name: s3-proxy
+          token: ${{ secrets.GITHUB_TOKEN }}
