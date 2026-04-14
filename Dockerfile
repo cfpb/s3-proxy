@@ -4,7 +4,8 @@ WORKDIR /build
 
 COPY pyproject.toml .
 
-RUN pip install --no-cache-dir --prefix=/install .
+RUN apk update --no-cache && apk upgrade --no-cache && \
+    pip install --no-cache-dir --prefix=/install .
 
 COPY app.py .
 
@@ -17,6 +18,8 @@ ENV PYTHONUNBUFFERED=1
 COPY --from=builder /install /usr/local
 WORKDIR /app
 COPY app.py .
+
+RUN apk update --no-cache && apk upgrade --no-cache
 
 USER appuser
 
